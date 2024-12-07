@@ -69,4 +69,4 @@ Do you want to download video or audio? (v/a): a
 - **Missing `ffmpeg`**: Make sure `ffmpeg` is installed and available in your system's PATH.
 
 ## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) file for details.
