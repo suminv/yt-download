@@ -17,8 +17,8 @@ allows users to choose between downloading the best-quality video or an M4A audi
 ## Installation
 1. Clone this repository or download the script file:
    ```bash
-   git clone <repository_url>
-   cd <repository_folder>
+   git clone https://github.com/suminv/yt-download
+   cd yt-download
    ```
 
 2. Install the required Python packages:
