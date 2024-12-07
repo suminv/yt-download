@@ -1,0 +1,4 @@
+certifi==2024.8.30
+ffmpeg-python==0.2.0
+future==1.0.0
+yt-dlp==2024.12.6.161513.dev0
