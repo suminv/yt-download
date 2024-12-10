@@ -1,9 +1,6 @@
 import unittest
 import os
-import re
-import yt_dlp
 from unittest.mock import patch, MagicMock
-import sys
 import tempfile
 import io
 import sys

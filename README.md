@@ -4,7 +4,7 @@ This is a simple Python application to download videos or audio from YouTube usi
 allows users to choose between downloading the best-quality video or an M4A audio file extracted from the video.
 
 ## Features
-- Download videos in the best available quality.
+- Download select videos quality or download the best available quality.
 - Download audio-only in M4A format with 192kbps quality.
 - Automatically handles SSL certificate issues.
 - Creates a `downloads` folder to save the downloaded files.
