@@ -79,7 +79,6 @@ def select_resolution():
     elif choice == '3':
         return 'bestvideo[height<=480]+bestaudio/best'
     elif choice == '4':
-        # For absolute best quality
         return 'bestvideo+bestaudio/best'
     else:
         return 'best'
@@ -94,6 +93,7 @@ def is_valid_youtube_url(url):
 
 
 def list_available_formats(url):
+    """Lists the available formats for a given YouTube video URL."""
     ydl_opts = {'listformats': True}
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info_dict = ydl.extract_info(url, download=False)
