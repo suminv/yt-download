@@ -44,12 +44,12 @@ def download_audio(video_url, output_path="./downloads"):
         return
 
     ydl_opts = {
-        'format': 'bestaudio',
+        'format': 'm4a/bestaudio/best',
         'outtmpl': f'{output_path}/%(title)s.%(ext)s',
         'postprocessors': [{
             'key': 'FFmpegExtractAudio',
             'preferredcodec': 'm4a',
-            'preferredquality': '192',
+
         }],
         'nocheckcertificate': True,
     }
