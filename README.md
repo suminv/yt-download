@@ -42,8 +42,9 @@ allows users to choose between downloading the best-quality video or an M4A audi
 2. Enter the YouTube video URL when prompted.
 
 3. Choose whether to download:
-   - Video: Type `v`
+   - Video: Type `ps`
    - Audio: Type `a`
+   - Subtitles: Type `s`
 
 4. The downloaded file will be saved in the `downloads` folder.
 
