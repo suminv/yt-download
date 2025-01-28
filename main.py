@@ -64,6 +64,45 @@ def download_audio(video_url, output_path="./downloads"):
         print(f"An error occurred: {e}")
 
 
+def download_subtitles(video_url, output_path="./downloads", lang='en'):
+    """
+    Download subtitles for a given YouTube video URL.
+    
+    Args:
+        video_url (str): YouTube video URL
+        output_path (str): Directory to save the subtitles
+        lang (str): Language code for subtitles (default: 'en')
+    
+    Returns:
+        bool: True if download successful, False otherwise
+    """
+    if not is_valid_youtube_url(video_url):
+        print('Invalid YouTube URL. Please check the link')
+        return False
+
+    ydl_opts = {
+        'writesubtitles': True,
+        'writeautomaticsub': True,
+        'subtitleslangs': [lang],
+        'skip_download': True,  # Skip video download, we only want subtitles
+        'outtmpl': f'{output_path}/%(title)s.%(ext)s',
+        'nocheckcertificate': True,
+        'format': 'best',  # Required even with skip_download
+    }
+
+    os.makedirs(output_path, exist_ok=True)
+
+    try:
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+            info = ydl.extract_info(video_url, download=True)
+            print(f"Subtitles downloaded successfully for: {info.get('title', 'Unknown Title')}")
+            return True
+    except Exception as e:
+        print(f"An error occurred while downloading subtitles: {e}")
+        return False
+    
+    
+
 def select_resolution():
     print("Available resolutions:")
     print("1. 1080p")
@@ -105,7 +144,7 @@ def list_available_formats(url):
 
 
 if __name__ == "__main__":
-    choice = input("Download playlist / single video or audio? (ps/a): ").strip().lower()
+    choice = input("Download playlist / single video or audio / subtitles? (ps/a/s): ").strip().lower()
     if choice == 'ps':
         playlist_url = input("Enter the YouTube playlist URL or single URL: ").strip()
         download_items(playlist_url)
@@ -113,5 +152,8 @@ if __name__ == "__main__":
     elif choice == 'a':
         video_url = input("Enter the YouTube video URL for download audio: ").strip()
         download_audio(video_url)
+    elif choice == 's':
+        video_url = input("Enter the YouTube video URL for download subtitles: ").strip()
+        download_subtitles(video_url)
     else:
-        print("Invalid choice. Please enter 'p' for playlist or 'f' for single video or 'a' for audio.")
+        print("Invalid choice. Please enter 'p' for playlist or 'f' for single video or 'a' for audio or 's' for subtitles.")
