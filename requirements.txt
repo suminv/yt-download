@@ -1,4 +1,4 @@
 certifi==2024.8.30
 ffmpeg-python==0.2.0
 future==1.0.0
-yt-dlp==2025.1.15
+yt-dlp==2025.3.31
